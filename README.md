@@ -16,12 +16,12 @@ python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 pip install --upgrade pip
-pip install git+[https://github.com/fxcosta-phd/optimModels2.git](https://github.com/fxcosta-phd/optimModels2.git)
+pip install git+https://github.com/fxcosta-phd/optimModels2.git
 ```
 
 ### Local Development Installation
 ```bash
-git clone [https://github.com/fxcosta-phd/optimModels2.git](https://github.com/fxcosta-phd/optimModels2.git)
+git clone https://github.com/fxcosta-phd/optimModels2.git
 cd optimModels2
 
 python -m venv .venv
