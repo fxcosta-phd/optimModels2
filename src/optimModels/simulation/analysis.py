@@ -1,4 +1,4 @@
-import framed.cobra.simulation as fr
+import reframed.cobra.simulation as fr
 from optimModels.utils.configurations import GeckoConfigurations
 from geckopy import GeckoModel
 

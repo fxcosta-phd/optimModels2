@@ -1,4 +1,4 @@
-from framed.io.sbml import load_cbmodel
+from reframed.io.sbml import load_cbmodel
 
 from optimModels.simulation.simul_problems import StoicSimulationProblem
 from optimModels.optimization.evaluation_functions import build_evaluation_function

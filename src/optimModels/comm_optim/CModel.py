@@ -1,7 +1,7 @@
 from optimModels.comm_optim import ea_knockout
 from optimModels.comm_optim.ea_setup import *
 from copy import deepcopy
-from framed import load_cbmodel, FBA, Community, Environment
+from reframed import load_cbmodel, FBA, Community, Environment
 
 
 class CModel:
@@ -116,7 +116,7 @@ class CModel:
 
     def fba(self, objective_list = None, constraints = None):
         """
-        performs an fba from framed while assuring that when the biomass reaction
+        performs an fba from reframed while assuring that when the biomass reaction
         of a model is not in the objectives or constraints, that reactions must be at least
         10% of its original value when simulated as a single model
         :param objective_list: list of str, reactions to be used as the objective

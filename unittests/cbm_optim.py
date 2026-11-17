@@ -1,5 +1,5 @@
 from cobra.io import read_sbml_model
-from framed.io.sbml import load_cbmodel
+from reframed.io.sbml import load_cbmodel
 from optimModels.optimization.evaluation_functions import build_evaluation_function
 from optimModels.simulation.simul_problems import StoicSimulationProblem
 from optimModels.optimization.run import cbm_strain_optim

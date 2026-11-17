@@ -1,9 +1,9 @@
 import os
 import cobra
-import framed
+import reframed
 import optimModels
 from cobra.io import read_sbml_model
-from framed.io.sbml import load_cbmodel
+from reframed.io.sbml import load_cbmodel
 from optimModels.utils.configurations import StoicConfigurations
 from optimModels.simulation.simul_problems import StoicSimulationProblem
 from optimModels.optimization.decoders import DecoderReacUnderOverExpression
@@ -17,7 +17,7 @@ def cobra_or_framed(model):
     """
     if isinstance(model, cobra.core.model.Model):
         return True
-    elif isinstance(model, framed.model.cbmodel.CBModel):
+    elif isinstance(model, reframed.core.cbmodel.CBModel):
         return False
     else:
         raise Exception("Model type not supported")

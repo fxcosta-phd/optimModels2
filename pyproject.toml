@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "cobra>=0.29",
-    "framed>=0.5.2",
+    "reframed>=1.5.0,<1.6.0",
     "geckopy>=2.0.2",
     "inspyred>=1.0.3",
     "pandas>=2.1",

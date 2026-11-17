@@ -1,6 +1,6 @@
 import os
 import optimModels
-from framed import load_cbmodel
+from reframed import load_cbmodel
 from optimModels.comm_optim.CModel import CModel
 from optimModels.comm_optim.ea_setup import change_config
 

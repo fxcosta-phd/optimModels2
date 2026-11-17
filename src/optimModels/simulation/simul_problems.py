@@ -1,8 +1,8 @@
 import time
 from abc import ABCMeta, abstractmethod
 from collections import OrderedDict
-from framed.cobra.simulation import FBA, MOMA, ROOM, pFBA, lMOMA
-from framed.solvers import solver_instance, set_default_solver
+from reframed.cobra.simulation import FBA, MOMA, ROOM, pFBA, lMOMA
+from reframed.solvers import solver_instance, set_default_solver
 import re
 from optimModels.utils.utils import MyPool
 from optimModels.simulation.simul_results import kineticSimulationResult, StoicSimulationResult, GeckoSimulationResult
@@ -429,7 +429,7 @@ class KineticSimulationProblem(SimulationProblem):
                     toModify = set(factorsParam.keys()).intersection(self.get_model().reacParamsFactors[rId])
                     if len(toModify) > 0:
                         for elem in toModify:
-                            newExp = re.sub(r"([pv]\['" + elem + "'\])", str(factorsParam[elem]) + r" * \1", newExp);
+                            newExp = re.sub(r"([pv]\['" + elem + r"'\])", str(factorsParam[elem]) + r" * \1", newExp);
                 rates[rId] = newExp
             p=self.get_model().get_parameters()
             r=self.get_model().parsedRules

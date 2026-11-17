@@ -1,6 +1,6 @@
 from optimModels.model.kineticModel import load_kinetic_model
-from framed.cobra.simulation import FBA, pFBA
-from framed.io.sbml import load_cbmodel
+from reframed.cobra.simulation import FBA, pFBA
+from reframed.io.sbml import load_cbmodel
 from optimModels.simulation.simul_problems import StoicSimulationProblem, KineticSimulationProblem
 from optimModels.simulation.override_simul_problem import  OverrideKineticSimulProblem
 from optimModels.utils.utils import fix_exchange_reactions_model

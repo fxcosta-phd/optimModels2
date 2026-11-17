@@ -1,8 +1,8 @@
 from collections import OrderedDict
 from libsbml import readSBMLFromFile
-from framed.io.sbml import  _load_compartments, _load_metabolites, _load_reactions, _load_global_parameters, \
+from reframed.io.sbml import  load_compartments, load_metabolites, load_reactions, load_global_parameters, \
     _load_local_parameters, _load_ratelaws, _load_assignment_rules, _load_concentrations
-from framed.model.odemodel import ODEModel
+from reframed.core.odemodel import ODEModel
 import re
 from  optimModels.utils.utils import MyTree
 
@@ -26,11 +26,11 @@ def load_kinetic_model(filename, map=None):
 
     model = KineticModel(sbmlModel.getId())
 
-    _load_compartments(sbmlModel, model)
-    _load_metabolites(sbmlModel, model)
-    _load_reactions(sbmlModel, model)
+    load_compartments(sbmlModel, model)
+    load_metabolites(sbmlModel, model)
+    load_reactions(sbmlModel, model)
     _load_concentrations(sbmlModel, model)
-    _load_global_parameters(sbmlModel, model)
+    load_global_parameters(sbmlModel, model)
     _load_local_parameters(sbmlModel, model)
     _load_ratelaws(sbmlModel, model)
     _load_assignment_rules(sbmlModel, model)
@@ -106,7 +106,7 @@ class KineticModel(ODEModel):
                 toModify = set(factorsParam.keys()).intersection(self.reacParamsFactors[rId])
                 if len(toModify) > 0:
                     for elem in toModify:
-                        newExp = re.sub(r"([pv]\['" + elem + "'\])", str(factorsParam[elem]) + r" * \1", newExp);
+                        newExp = re.sub(r"([pv]\['" + elem + r"'\])", str(factorsParam[elem]) + r" * \1", newExp);
             rateExprs.append("    r['{}'] = {}".format(rId, newExp))
 
         balances = []
@@ -188,7 +188,7 @@ class KineticModel(ODEModel):
 # auxiliary functions to set the assignment rules by the correct order in the ODE system
 # TODO: Check if the framed in python 3.6 already correct the order of rules
 def _build_tree_rules(parent, rules):
-    regexp = "v\[\'(.*?)\'\]"
+    regexp = r"v\['(.*?)'\]"
     children = re.findall(regexp, rules[parent])
     if len(children) == 0:
         return MyTree(parent, None)

@@ -1,6 +1,6 @@
 import os
 import optimModels
-from framed import load_cbmodel
+from reframed import load_cbmodel
 from optimModels.utils.constantes import optimType
 from optimModels.optimization.run import cbm_strain_optim
 from optimModels.unittests.stoic_simul import cobra_or_framed
