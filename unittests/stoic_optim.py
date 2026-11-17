@@ -3,11 +3,25 @@ import optimModels
 from reframed import load_cbmodel
 from optimModels.utils.constantes import optimType
 from optimModels.optimization.run import cbm_strain_optim
-from optimModels.unittests.stoic_simul import cobra_or_framed
+
 from optimModels.utils.configurations import StoicConfigurations
 from optimModels.simulation.simul_problems import StoicSimulationProblem
 from optimModels.optimization.evaluation_functions import build_evaluation_function
 
+import cobra
+import reframed
+def cobra_or_framed(model):
+    """
+    aux function to decide model interpreter in optimization options
+    :param model: model object
+    :return boolean:
+    """
+    if isinstance(model, cobra.core.model.Model):
+        return True
+    elif isinstance(model, reframed.core.cbmodel.CBModel):
+        return False
+    else:
+        raise Exception("Model type not supported")
 
 def stoic_optimization(model, optim_type, eval_func, **kwargs):
     cand_size = kwargs.get("size", None)

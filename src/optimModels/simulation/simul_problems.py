@@ -1,7 +1,8 @@
 import time
 from abc import ABCMeta, abstractmethod
 from collections import OrderedDict
-from reframed.cobra.simulation import FBA, MOMA, ROOM, pFBA, lMOMA
+from reframed.cobra.simulation import FBA, ROOM, pFBA, lMOMA
+MOMA = lMOMA
 from reframed.solvers import solver_instance, set_default_solver
 import re
 from optimModels.utils.utils import MyPool
